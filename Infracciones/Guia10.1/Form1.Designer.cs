@@ -41,21 +41,23 @@
             this.rb3Ejes = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chbxPagoAhora = new System.Windows.Forms.CheckBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lBxResumen = new System.Windows.Forms.ListBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnResumen = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.btnResumen);
             this.groupBox1.Controls.Add(this.btnRegistrar);
-            this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -73,7 +75,7 @@
             this.groupBox2.Controls.Add(this.chbxSobrevelocidad);
             this.groupBox2.Controls.Add(this.chbxMatafuego);
             this.groupBox2.Controls.Add(this.chbxSinLuz);
-            this.groupBox2.Location = new System.Drawing.Point(7, 12);
+            this.groupBox2.Location = new System.Drawing.Point(7, 30);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(295, 154);
             this.groupBox2.TabIndex = 0;
@@ -135,7 +137,7 @@
             this.groupBox3.Controls.Add(this.rb3Ejes);
             this.groupBox3.Controls.Add(this.rb2Ejes);
             this.groupBox3.Controls.Add(this.rb1Eje);
-            this.groupBox3.Location = new System.Drawing.Point(7, 173);
+            this.groupBox3.Location = new System.Drawing.Point(7, 191);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(295, 121);
             this.groupBox3.TabIndex = 1;
@@ -178,7 +180,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.chbxPagoAhora);
-            this.groupBox4.Location = new System.Drawing.Point(11, 306);
+            this.groupBox4.Location = new System.Drawing.Point(11, 324);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(291, 70);
             this.groupBox4.TabIndex = 2;
@@ -195,27 +197,28 @@
             this.chbxPagoAhora.Text = "Realiza el pago?";
             this.chbxPagoAhora.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lBxResumen
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(338, 20);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(248, 292);
-            this.listBox1.TabIndex = 3;
+            this.lBxResumen.FormattingEnabled = true;
+            this.lBxResumen.ItemHeight = 16;
+            this.lBxResumen.Location = new System.Drawing.Point(9, 21);
+            this.lBxResumen.Name = "lBxResumen";
+            this.lBxResumen.Size = new System.Drawing.Size(264, 324);
+            this.lBxResumen.TabIndex = 3;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(89, 395);
+            this.btnRegistrar.Location = new System.Drawing.Point(89, 413);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(118, 48);
             this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Registrar Infraccion";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnResumen
             // 
-            this.btnResumen.Location = new System.Drawing.Point(414, 395);
+            this.btnResumen.Location = new System.Drawing.Point(414, 413);
             this.btnResumen.Name = "btnResumen";
             this.btnResumen.Size = new System.Drawing.Size(118, 48);
             this.btnResumen.TabIndex = 5;
@@ -230,6 +233,17 @@
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lBxResumen);
+            this.groupBox5.Location = new System.Drawing.Point(323, 30);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(279, 364);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Resumen";
             // 
             // Form1
             // 
@@ -239,7 +253,9 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "cambiar clave de";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -247,6 +263,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -266,10 +283,11 @@
         private System.Windows.Forms.RadioButton rb1Eje;
         private System.Windows.Forms.Button btnResumen;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lBxResumen;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox chbxPagoAhora;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 
